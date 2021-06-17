@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+{
+ width:100%;
+ margin:0 auto;
+ padding:0px;
+ font-family:helvetica;
+ background-color:#58ACFA;
+}
+#wrapper
+{
+ text-align:center;
+ margin-top: 20%;
+ padding:0px;
+ width:995px;
+ display: flex;
+ justify-content: center;
+
+}
+#player
+{
+ background-color:rgb(248, 245, 245);
+ width:400px;
+ margin-left:350px;
+ padding:5px;
+ box-sizing:border-box;
+}
+input[type="image"]
+{
+ float:left;
+ height:20px;
+ margin-left:2px;
+ margin-right:5px;
+ margin-top:2px;
+}
+#vol_img
+{
+ margin-left:100px;
+ width:20px;
+ float: left;
+}
+#change_vol{
+    float: left;
+}
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id='player'>
+        <audio id="music_player">
+        <source src="02 Aisi Aankhein Dekhi - www.downloadming.com.mp3"/>
+        </audio>
+        <img src="3796511.png" id="vol_img">
+        <input type="range"  id="change_vol" onchange="change_vol()" step="0.05" min="0" max="1" value="1">
+       <input type="image" src="2794765.png" onclick="stop_aud()" id="play_button">
+       <input type="image" src="3540880.png" onclick="play_aud()" id="play_button">
+        
+        </div>
+        </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() { startplayer(); }, false);
+var player;
+
+function startplayer() 
+{
+ player = document.getElementById('music_player');
+ player.controls = false;
+}
+
+function play_aud() 
+{
+ player.play();
+} 
+function pause_aud() 
+{
+ player.pause();
+}
+function stop_aud() 
+{
+ player.pause();
+ player.currentTime = 0;
+}
+function change_vol()
+{
+ player.volume=document.getElementById("change_vol").value;
+ 
+}
+</script>
+</html>
